@@ -17,7 +17,7 @@ class Bullet(pygame.sprite.Sprite):
         self.settings = game.settings
 
         self.image = pygame.image.load(
-            'Assets/laserBlast.png'
+            'Assets/images/laserBlast.png'
         ).convert_alpha()
 
         self.image = pygame.transform.scale(

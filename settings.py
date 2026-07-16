@@ -38,11 +38,20 @@ class Settings:
         # Power-up settings
         self.powerup_speed = 3
         self.powerup_spawn_chance = 0.10
+        self.powerup_duration = 600
+        self.bullets_allowed_boosted = 8
 
         # Boss settings
         self.boss_speed = 3
         self.boss_health = 50
         self.boss_level_interval = 5
+        self.boss_points = 1000
+
+        # Alien variety
+        self.strong_alien_chance = 0.15
+
+        # Starfield settings
+        self.star_count = 80
 
         # Difficulty scaling
         self.speedup_scale = 1.15

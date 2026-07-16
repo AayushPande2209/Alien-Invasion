@@ -15,7 +15,7 @@ class Ship:
         self.settings = game.settings
 
         self.image = pygame.image.load(
-            'Assets/ship2(no bg).png'
+            'Assets/images/ship2(no bg).png'
         ).convert_alpha()
 
         self.image = pygame.transform.scale(
@@ -34,6 +34,9 @@ class Ship:
         self.moving_right = False
         self.moving_left = False
 
+        self.bullet_power = False
+        self.power_timer = 0
+
     def update(self):
         '''Update the ship position based on movement.'''
 
@@ -44,6 +47,13 @@ class Ship:
             self.x -= self.settings.ship_speed
 
         self.rect.x = self.x
+
+        if self.bullet_power:
+
+            self.power_timer -= 1
+
+            if self.power_timer <= 0:
+                self.bullet_power = False
 
     def center_ship(self):
         '''Move the ship back to the starting position.'''

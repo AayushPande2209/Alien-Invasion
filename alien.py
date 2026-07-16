@@ -8,7 +8,7 @@ import pygame
 
 
 class Alien(pygame.sprite.Sprite):
-    def __init__(self, game):
+    def __init__(self, game, alien_type='normal'):
         '''Initialize the alien and set its starting position.'''
 
         super().__init__()
@@ -16,14 +16,33 @@ class Alien(pygame.sprite.Sprite):
         self.screen = game.screen
         self.settings = game.settings
 
+        self.alien_type = alien_type
+
         self.image = pygame.image.load(
-            'Assets/enemy_4.png'
+            'Assets/images/enemy_4.png'
         ).convert_alpha()
 
         self.image = pygame.transform.scale(
             self.image,
             (60, 60)
         )
+
+        if self.alien_type == 'strong':
+
+            self.image = self.image.copy()
+
+            self.image.fill(
+                (255, 60, 60, 255),
+                special_flags=pygame.BLEND_RGBA_MULT
+            )
+
+            self.health = 2
+            self.points = self.settings.alien_points * 2
+
+        else:
+
+            self.health = 1
+            self.points = self.settings.alien_points
 
         self.rect = self.image.get_rect()
 
@@ -44,6 +63,13 @@ class Alien(pygame.sprite.Sprite):
             return True
 
         return False
+
+    def hit(self):
+        '''Reduce alien health. Return True if the alien is destroyed.'''
+
+        self.health -= 1
+
+        return self.health <= 0
 
     def update(self):
         '''Move the alien horizontally.'''

@@ -15,7 +15,7 @@ class PowerUp:
         self.settings = game.settings
 
         self.image = pygame.image.load(
-            'Assets/beams.png'
+            'Assets/images/beams.png'
         ).convert_alpha()
 
         self.image = pygame.transform.scale(
@@ -51,3 +51,4 @@ class PowerUp:
 
         if self.type == 'rapid_fire':
             ship.bullet_power = True
+            ship.power_timer = self.settings.powerup_duration

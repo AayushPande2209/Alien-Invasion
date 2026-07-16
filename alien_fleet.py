@@ -4,6 +4,8 @@ alien_fleet.py
 Contains the AlienFleet class.
 '''
 
+import random
+
 import pygame
 
 from alien import Alien
@@ -60,7 +62,10 @@ class AlienFleet:
     def create_alien(self, alien_number, row_number):
         '''Create one alien in the fleet.'''
 
-        alien = Alien(self.game)
+        if random.random() < self.settings.strong_alien_chance:
+            alien = Alien(self.game, 'strong')
+        else:
+            alien = Alien(self.game, 'normal')
 
         alien.x = (
             alien.rect.width +

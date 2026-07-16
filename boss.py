@@ -15,7 +15,7 @@ class Boss:
         self.settings = game.settings
 
         self.image = pygame.image.load(
-            'Assets/Starbasesnow.png'
+            'Assets/images/Starbasesnow.png'
         ).convert_alpha()
 
         self.image = pygame.transform.scale(
