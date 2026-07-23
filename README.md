@@ -27,6 +27,7 @@ The player controls a spaceship, fights waves of alien enemies, earns points, an
 | Left Arrow | Move ship left |
 | Right Arrow | Move ship right |
 | Space | Fire laser |
+| Tab | Change ship skin |
 | Q | Quit game |
 
 ## Project Structure

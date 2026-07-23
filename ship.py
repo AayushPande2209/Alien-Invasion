@@ -14,14 +14,22 @@ class Ship:
         self.screen = game.screen
         self.settings = game.settings
 
-        self.image = pygame.image.load(
-            'Assets/images/ship2(no bg).png'
-        ).convert_alpha()
+        self.skin_paths = [
+            'Assets/images/ship2(no bg).png',
+            'Assets/images/ship.png',
+        ]
 
-        self.image = pygame.transform.scale(
-            self.image,
-            (80, 80)
-        )
+        self.skin_index = 0
+
+        self.skin_images = [
+            pygame.transform.scale(
+                pygame.image.load(path).convert_alpha(),
+                (80, 80)
+            )
+            for path in self.skin_paths
+        ]
+
+        self.image = self.skin_images[self.skin_index]
 
         self.rect = self.image.get_rect()
 
@@ -61,6 +69,12 @@ class Ship:
         self.rect.midbottom = self.screen_rect.midbottom
         self.rect.y -= 20
         self.x = float(self.rect.x)
+
+    def cycle_skin(self):
+        '''Switch to the next ship skin.'''
+
+        self.skin_index = (self.skin_index + 1) % len(self.skin_images)
+        self.image = self.skin_images[self.skin_index]
 
     def draw(self):
         '''Draw the ship on the screen.'''

@@ -142,6 +142,9 @@ class AlienInvasion:
         elif event.key == pygame.K_q:
             sys.exit()
 
+        elif event.key == pygame.K_TAB:
+            self.ship.cycle_skin()
+
     def check_keyup_events(self, event):
         '''Handle key releases.'''
 
