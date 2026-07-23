@@ -1,4 +1,4 @@
-```markdown
+
 # Alien Shooter
 
 A Python Pygame-based space shooter game inspired by the classic Alien Invasion arcade style game.
@@ -126,4 +126,3 @@ Possible future additions:
 Created using Python and Pygame.
 
 Game assets are stored in the Assets folder and are used for educational and personal project purposes.
-```
